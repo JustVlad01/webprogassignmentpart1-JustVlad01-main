@@ -1,0 +1,53 @@
+### POST Request to create a new car
+POST http://localhost:3000/api/v1/cars HTTP/1.1
+Content-Type: application/json
+x-api-key: blahblah
+
+{
+  "brand": "Honda",
+  "model": "accord",
+  "year": 2005,
+  "mileage": 12521
+}
+
+### GET Request to retrieve all cars
+GET http://localhost:3000/api/v1/cars HTTP/1.1
+x-api-key: blahblah
+
+
+### DELETE Request to delete a car by ID
+DELETE http://localhost:3000/api/v1/cars/670fae4c7098aeeb0830cb7d HTTP/1.1
+x-api-key: blahblah
+
+
+### GET Request to retrieve a car by ID
+
+GET http://localhost:3000/api/v1/cars/670fae4b7098aeeb0830cb7c HTTP/1.1
+Content-Type: application/json
+x-api-key: blahblah
+
+
+### POST Request with valid car data
+POST http://localhost:3000/api/v1/cars HTTP/1.1
+Content-Type: application/json
+x-api-key: blahblah
+
+{
+  "brand": "Honda",
+  "model": "Civic",
+  "year": 2021,
+  "mileage": 5000
+}
+
+### POST Request with invalid car data (failing case)
+POST http://localhost:3000/api/v1/cars HTTP/1.1
+Content-Type: application/json
+x-api-key: blahblah
+
+{
+  "brand": "T",                 // Brand is too short, should be at least 2 characters
+  "model": "",                  // Model is required
+  "year": 1800,                 // Year is too old
+  "mileage": -50                // Mileage should be non-negative
+}
+
